@@ -4,20 +4,20 @@ const { encodeString, decodeString } = require("./helper");
 
 app.use(cors());
 
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
   res.json({
     encode: "http://localhost:3000/encode/yourString",
     decode: "http://localhost:3000/encode/yourString",
   });
 });
 
-app.get("/encode/:string", (req, res) => {
+app.get("/api/encode/:string", (req, res) => {
   let string = req.params.string;
   let encoded = encodeString(string);
   res.json({ encoded });
 });
 
-app.get("/decode/:string", (req, res) => {
+app.get("/api/decode/:string", (req, res) => {
   let string = req.params.string;
   let decoded = decodeString(string);
 
