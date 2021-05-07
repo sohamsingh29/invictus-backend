@@ -6,8 +6,8 @@ app.use(cors());
 
 app.get("/api/", (req, res) => {
   res.json({
-    encode: "http://localhost:3000/encode/yourString",
-    decode: "http://localhost:3000/encode/yourString",
+    encode: "https://invictus-backend.vercel.app/api/encode/yourString",
+    decode: "https://invictus-backend.vercel.app/api/decode/yourString",
   });
 });
 
