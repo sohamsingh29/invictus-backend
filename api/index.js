@@ -1,5 +1,9 @@
 const app = require("express")();
-const { encodeString, decodeString } = require("./helper");
+const cors = require("cors");
+const { encodeString, decodeString } = require("../helper");
+
+app.use(cors());
+
 app.get("/", (req, res) => {
   res.json({
     encode: "http://localhost:3000/encode/yourString",
@@ -10,14 +14,15 @@ app.get("/", (req, res) => {
 app.get("/encode/:string", (req, res) => {
   let string = req.params.string;
   let encoded = encodeString(string);
-  res.json({encoded});
+  res.json({ encoded });
 });
 
 app.get("/decode/:string", (req, res) => {
   let string = req.params.string;
   let decoded = decodeString(string);
 
-  res.json({decoded});
+  res.json({ decoded });
 });
 
 app.listen(3000, () => console.log("server running at http://localhost:3000"));
+module.exports = app;
