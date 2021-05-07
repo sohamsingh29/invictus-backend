@@ -10,14 +10,14 @@ app.get("/", (req, res) => {
 app.get("/encode/:string", (req, res) => {
   let string = req.params.string;
   let encoded = encodeString(string);
-  res.send(encoded);
+  res.json({encoded});
 });
 
 app.get("/decode/:string", (req, res) => {
   let string = req.params.string;
   let decoded = decodeString(string);
 
-  res.send(decoded);
+  res.json({decoded});
 });
 
 app.listen(3000, () => console.log("server running at http://localhost:3000"));
