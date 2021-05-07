@@ -1,6 +1,6 @@
 const app = require("express")();
 const cors = require("cors");
-const { encodeString, decodeString } = require("../helper");
+const { encodeString, decodeString } = require("./helper");
 
 app.use(cors());
 
